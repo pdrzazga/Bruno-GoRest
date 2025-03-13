@@ -1,0 +1,19 @@
+meta {
+  name: Search for user by id
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://gorest.co.in/public/v2/users/{{id}}
+  body: none
+  auth: bearer
+}
+
+headers {
+  Authorization: Bearer ACCESS-TOKEN
+}
+
+auth:bearer {
+  token: cf5a46ab01ebdeb7fc41ad9197dbbc6db9443f6171917aa558c51823bfed1606
+}

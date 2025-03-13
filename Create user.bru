@@ -1,0 +1,33 @@
+meta {
+  name: Create user
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://gorest.co.in/public/v2/users
+  body: json
+  auth: inherit
+}
+
+headers {
+  Accept: application/json
+  Content-Type: application/json
+  Authorization: Bearer ACCESS-TOKEN
+}
+
+body:json {
+  {
+    "name": "Pelson Tester",
+    "gender": "female",
+    "email": "pelson@tester.com",
+    "status": "active"
+  }
+}
+
+script:post-response {
+  let response = res.getBody();
+  let id = response.id;
+  console.log(id);
+  bru.setVar('id',id);
+}
